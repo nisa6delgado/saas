@@ -17,11 +17,13 @@ php artisan serve
 ## Rutas disponibles
 ~~~
 GET     /api/students
+GET     /api/students/show/{id}
 POST    /api/students/store
 PUT     /api/students/update/{id_student}
 DELETE  /api/students/delete/{id_student}
 
 GET     /api/ratings
+GET     /api/ratings/show/{id}
 POST    /api/ratings/store
 PUT     /api/ratings/update/{id_rating}
 DELETE  /api/ratings/delete/{id_rating}

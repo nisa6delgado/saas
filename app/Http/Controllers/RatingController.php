@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Student;
+use App\Models\Rating;
 
-class StudentController extends Controller
+class RatingController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +15,8 @@ class StudentController extends Controller
      */
     public function index()
     {
-        $students = Student::get();
-        return $students;
+        $ratings = Rating::get();
+        return $ratings;
     }
 
     /**
@@ -36,7 +37,7 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        $student = Student::create($request->all());
+        $student = Rating::create($request->all());
         return $student;
     }
 
@@ -48,8 +49,8 @@ class StudentController extends Controller
      */
     public function show($id)
     {
-        $student = Student::find($id);
-        return $student;
+        $rating = Rating::find($id);
+        return $rating;
     }
 
     /**
@@ -72,10 +73,10 @@ class StudentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $student = Student::find($id);
-        $student->update($request->all());
+        $rating = Rating::find($id);
+        $rating->update($request->all());
 
-        return $student;
+        return $rating;
     }
 
     /**
@@ -86,7 +87,13 @@ class StudentController extends Controller
      */
     public function destroy($id)
     {
+        $rating = Rating::find($id);
+        $rating->delete();
+    }
+
+    public function query($id)
+    {
         $student = Student::find($id);
-        $student->delete();
+        return $student->ratings;
     }
 }

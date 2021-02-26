@@ -10,4 +10,9 @@ class Student extends Model
     protected $table = 'students';
     protected $primaryKey = 'id';
     protected $fillable = ['name', 'ci', 'course'];
+
+    public function ratings()
+    {
+    	return $this->hasMany('App\Models\Rating');
+    }
 }
